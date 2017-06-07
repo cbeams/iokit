@@ -1,7 +1,6 @@
 package org.iokit.message;
 
 import org.iokit.general.InvalidCharacterException;
-
 import org.iokit.general.ValueSpec;
 
 import org.junit.Ignore;
