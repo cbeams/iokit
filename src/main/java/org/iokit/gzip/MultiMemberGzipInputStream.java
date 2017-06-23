@@ -12,6 +12,8 @@ import java.util.EnumSet;
 
 public class MultiMemberGzipInputStream extends IOKitInputStream {
 
+    public static final int DEFAULT_BUFFER_SIZE = 1024 * 1024;
+
     public MultiMemberGzipInputStream(GZIPInputStream in, InputStream raw, EnumSet<LineTerminator> terminators) {
         super(in, raw, terminators);
     }
@@ -20,6 +22,10 @@ public class MultiMemberGzipInputStream extends IOKitInputStream {
     public static class Adapter implements IOKitInputStream.Adapter {
 
         private final int size;
+
+        public Adapter() {
+            this(DEFAULT_BUFFER_SIZE);
+        }
 
         public Adapter(int size) {
             this.size = size;

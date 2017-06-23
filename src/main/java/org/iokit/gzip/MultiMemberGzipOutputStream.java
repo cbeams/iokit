@@ -45,9 +45,14 @@ public class MultiMemberGzipOutputStream extends IOKitOutputStream {
 
     public static class Adapter implements IOKitOutputStream.Adapter {
 
+        public static final int DEFAULT_BUFFER_SIZE = 1024 *1024;
         public static final String GZIP_FILE_SUFFIX = ".gz";
 
         private final int size;
+
+        public Adapter() {
+            this(DEFAULT_BUFFER_SIZE);
+        }
 
         public Adapter(int size) {
             this.size = size;
